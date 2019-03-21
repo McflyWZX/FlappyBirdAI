@@ -38,7 +38,8 @@ public class Pipe
 			b.setColor(Color.GRAY);
             return true;
         } else {
-            return false;
+			b.setColor(Color.CYAN);
+			return false;
         }
     }
 
