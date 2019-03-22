@@ -18,7 +18,7 @@ public class mainView extends DrawSurface
 	{
 		super(co);
 	}
-	
+
 	@Override
 	public void uInit()
 	{
@@ -38,38 +38,38 @@ public class mainView extends DrawSurface
 	public boolean onTouchEvent(MotionEvent event)
 	{
 		// TODO: Implement this method
-		if(event.getAction() == MotionEvent.ACTION_DOWN)
+		if (event.getAction() == MotionEvent.ACTION_DOWN)
 		{
 			tr.setVelocity(new Vector2(2, -7));
 		}
 		return true;
 	}
-	
+
 	@Override
 	public void onRun()
 	{
 		// TODO: Implement this method
-		if(System.currentTimeMillis() - st >= 2500)
+		if (System.currentTimeMillis() - st >= 2500)
 		{
 			isStart = true;
 			ps.addLast(new Pipe(new Vector2(cameraPosition.getX() + 7f, (float)(Math.random() * (Gconst.meterInHeight - 2) + 1))));
-			if(++index == 3)
+			if (ps.size() == 3)
 			{
 				ps.removeFirst();
 			}
 			st = System.currentTimeMillis();
 		}
-		
-		for(Pipe tp : ps)
+
+		for (Pipe tp : ps)
 		{
-		
-				if(tp.collisionCheck(0.5f, tr))
-				{
-					break;
-				}		
-			
+
+			if (tp.collisionCheck(0.5f, tr))
+			{
+				break;
+			}		
+
 		}
 	}
-	
-	
+
+
 }
