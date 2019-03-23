@@ -14,9 +14,9 @@ public class Pipe
 		this.centre = centre;
 		sH = Gconst.meterInHeight;
 		rUp = new SRect(new Vector2(centre.getX(), (centre.getY() - holeR) / 2),
-						new Vector2(1, centre.getY() - holeR), Color.GREEN);
+						new Vector2(1, centre.getY() - holeR), 0xff5dbe8a);
 		rDown = new SRect(new Vector2(centre.getX(), (sH + centre.getY() + holeR) / 2),
-						new Vector2(1, sH - centre.getY() - holeR), Color.GREEN);
+						new Vector2(1, sH - centre.getY() - holeR), 0xff5dbe8a);
 		rUp.setIsVisible(1);
 		rDown.setIsVisible(1);
 		rUp.setIsApplyToGravity(0);
@@ -38,7 +38,7 @@ public class Pipe
 			b.setColor(Color.GRAY);
             return true;
         } else {
-			b.setColor(Color.CYAN);
+			b.setColor(0xfff17666);
 			return false;
         }
     }

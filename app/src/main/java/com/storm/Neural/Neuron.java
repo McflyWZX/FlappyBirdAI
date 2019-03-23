@@ -54,20 +54,21 @@ public class Neuron
 
 	public float getOutFromLastLayer()
 	{
-		return outFromLastLayer;
+		return sigmod(outFromLastLayer * w) - b;
 	}
 	
 	void spread()
 	{
 		for(Neuron n : toNext)
 		{
-			n.addToOutFromLastLayer(this.outFromLastLayer * w);
+			n.addToOutFromLastLayer(sigmod(this.outFromLastLayer * w - b));
 		}
 		this.outFromLastLayer = 0;
 	}
 	
 	float sigmod(float x)
 	{
+		x = Math.min(30, Math.max(-30, x));
 		return (float)(Math.exp(x) / (Math.exp(x) + Math.exp(-x)));
 	}
 	

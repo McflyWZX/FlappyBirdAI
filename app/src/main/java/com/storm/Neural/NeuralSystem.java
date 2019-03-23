@@ -38,7 +38,7 @@ public class NeuralSystem
 			ArrayList<Neuron> newL = new ArrayList<Neuron>();
 			for(int i = 0; i < neurons; i++)
 			{
-				Neuron n = new Neuron((float)(Math.random() - 0.5), (float)(Math.random() - 0.5));
+				Neuron n = new Neuron((float)(Math.random() * 0.2 - 0.1), (float)(Math.random() * 0.2 - 0.1));
 				newL.add(n);
 			}
 			layers.addLast(newL);
@@ -48,7 +48,7 @@ public class NeuralSystem
 						      lastL = layers.getLast();
 			for(int i = 0; i < neurons; i++)
 			{
-				Neuron n = new Neuron((float)(Math.random() - 0.5), (float)(Math.random() - 0.5));
+				Neuron n = new Neuron((float)(Math.random() * 0.2 - 0.1), (float)(Math.random() * 0.2 - 0.1));
 				for(Neuron lN : lastL)
 				{
 					lN.linkTo(n);

@@ -4,6 +4,7 @@ import android.content.*;
 import android.graphics.*;
 import android.view.*;
 import java.util.*;
+import android.util.*;
 
 public class mainView extends DrawSurface
 {
@@ -23,7 +24,7 @@ public class mainView extends DrawSurface
 	public void uInit()
 	{
 		// TODO: Implement this method
-		tr = new Bird(new Vector2(2, 4), new Vector2(0.5f, 0.5f), Color.CYAN);
+		tr = new Bird(new Vector2(2, 4), new Vector2(0.5f, 0.5f), 0xfff17666);
 		tr.setIsVisible(1);
 		tr.setVelocity(new Vector2(2, 0));
 		this.gravity.setY(13f);
@@ -59,14 +60,22 @@ public class mainView extends DrawSurface
 			}
 			st = System.currentTimeMillis();
 		}
-
+		
 		for (Pipe tp : ps)
 		{
-
 			if (tp.collisionCheck(0.5f, tr))
 			{
+				//break;
+			}	
+			Log.i("bird", "I am here");
+			if(tp.centre.getX() > tr.getPosition().getX() - 2)
+			{
+				Log.i("bird", "?");//dy = " + (-tp.centre.getY() + tr.getPosition().getY()) + "; dx = " + (-tp.centre.getX() + tr.getPosition().getX()));
+				tr.inPut(-tp.centre.getY() + tr.getPosition().getY(), -tp.centre.getX() + tr.getPosition().getX());
+				
 				break;
-			}		
+			}
+			
 
 		}
 	}
